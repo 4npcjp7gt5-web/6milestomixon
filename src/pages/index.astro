@@ -104,10 +104,8 @@
   @keyframes fadeUp {
     to { opacity: 1; transform: translateY(0); }
   }
-  .hero-logo {
-  backdrop-filter: blur(2px);
-}
-  .hero-logo {
+ 
+   .hero-logo {
     width: 320px;
     max-width: 80%;
     height: auto;
@@ -132,17 +130,31 @@
 }
 
   /* ===== SECTION BACKGROUNDS ===== */
-  .about {
-    background: url('/about-bg.jpg') center/cover no-repeat;
-  }
+  #about {
+  background:
+    linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
+    url("/about-bg.jpg") center / cover no-repeat;
+}
 
-  .music {
-    background: url('/music-bg.jpg') center/cover no-repeat;
-  }
 
-  .contact {
-    background: url('/contact-bg.jpg') center/cover no-repeat;
-  }
+  #music {
+  background:
+    linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+    url("/music-bg.jpg") center / cover no-repeat;
+}
+
+
+  #contact {
+  background:
+    linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
+    url("/contact-bg.jpg") center / cover no-repeat;
+}
+section {
+  min-height: 80vh;
+}
+#about, #music, #contact {
+  background-attachment: fixed;
+}
 
   .overlay {
     background: rgba(0,0,0,0.75);
