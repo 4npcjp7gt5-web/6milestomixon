@@ -107,6 +107,7 @@ header img.logo {
       .hero {
         height: 100vh;
         background: url('/hero.jpg') center/cover no-repeat;
+        background-attachment: fixed; /* parallax effect */
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -136,16 +137,27 @@ header img.logo {
         padding-bottom: 20px;
       }
       .music-card {
-        flex: 0 0 auto;
-        margin-right: 20px;
-        border: 2px solid #ffcc66;
-        border-radius: 10px;
-        padding: 10px;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        background: #1a1a1a;
-      }
-      .music-card:hover { transform: scale(1.05); box-shadow: 0 0 20px #ffcc66; }
-      iframe { border-radius: 8px; }
+  flex: 0 0 auto;
+  margin-right: 20px;
+  border: 2px solid #ffcc66;
+  border-radius: 10px;
+  padding: 10px;
+  background: #1a1a1a;
+  transition: transform 0.5s ease, box-shadow 0.5s ease, opacity 0.8s ease;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.music-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.music-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #ffcc66;
+}
+
 
       /* ------------------ CONTACT BUTTON ------------------ */
       .contact button {
@@ -304,5 +316,15 @@ header img.logo {
       socialIcons.style.transform='translateY(20px)';
       socialObserver.observe(socialIcons);
     </script>
+    // Music cards fade in on scroll
+const musicCards = document.querySelectorAll('.music-card');
+const musicObserver = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) entry.target.classList.add('visible');
+  });
+}, { threshold: 0.2 });
+
+musicCards.forEach(card => musicObserver.observe(card));
+
   </body>
 </html>
