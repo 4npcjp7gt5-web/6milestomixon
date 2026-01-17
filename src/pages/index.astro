@@ -24,7 +24,7 @@
       section { padding: 80px 20px; opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
       section.visible { opacity: 1; transform: translateY(0); }
 
-   /* ------------------ HEADER ------------------ */
+/* HEADER */
 header {
   position: fixed;
   top: 0;
@@ -33,53 +33,77 @@ header {
   z-index: 1000;
   box-shadow: 0 2px 10px rgba(0,0,0,0.5);
   display: flex;
-  flex-direction: column; /* allow two rows */
+  justify-content: center;
   align-items: center;
   padding: 10px 20px;
+  flex-wrap: wrap; /* allows wrapping on smaller screens */
 }
 
-/* Logo row */
+/* Container to hold nav, logo, and social icons */
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px; /* keeps content centered */
+}
+
+/* Nav links */
+nav {
+  display: flex;
+  gap: 20px;
+  flex-shrink: 0; /* prevent shrinking on smaller screens */
+}
+
+nav a {
+  color: #ffcc66;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* Logo */
 .logo-container {
   display: flex;
   justify-content: center;
-  width: 100%;
-  margin-bottom: 5px;
+  flex: 1;
 }
 
 header img.logo {
   height: 60px;
-}
-
-/* Nav + social row */
-.nav-social {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  max-width: 800px; /* prevents overflowing on large screens */
-  align-items: center;
-}
-
-/* Nav links */
-.nav-social nav a {
-  margin-right: 20px;
-  color: #ffcc66;
-  font-weight: 600;
+  max-width: 100%; /* ensures it scales */
 }
 
 /* Social icons */
 .social-icons {
   display: flex;
   gap: 15px;
+  flex-shrink: 0;
 }
+
 .social-icons img {
   height: 28px;
   width: 28px;
   object-fit: contain;
-  filter: invert(1); /* white icons */
+  filter: invert(1); /* white */
   transition: filter 0.2s ease;
 }
+
 .social-icons img:hover {
-  filter: invert(0) sepia(1) saturate(5) hue-rotate(40deg); /* gold on hover */
+  filter: invert(0) sepia(1) saturate(5) hue-rotate(40deg); /* gold highlight */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+  }
+  .header-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  nav, .social-icons {
+    margin: 5px 0;
+  }
 }
 
 
@@ -142,20 +166,21 @@ header img.logo {
   </head>
   <body>
     <!-- HEADER WITH LOGO AND NAV -->
-<<Fragment header>
-  <!-- Logo centered -->
-  <div class="logo-container">
-    <img src="/logo.png" alt="6 Miles to Mixon Logo" class="logo" />
-  </div>
-
-  <!-- Nav and social icons row -->
-  <div class="nav-social">
+<header>
+  <div class="header-container">
+    <!-- Left nav -->
     <nav>
       <a href="#about">About</a>
       <a href="#music">Music</a>
       <a href="#contact">Contact</a>
     </nav>
 
+    <!-- Center logo -->
+    <div class="logo-container">
+      <img src="/logo.png" alt="6 Miles to Mixon Logo" class="logo">
+    </div>
+
+    <!-- Right social icons -->
     <div class="social-icons">
       <a href="https://www.instagram.com/YOURINSTAGRAM" target="_blank">
         <img src="/instagram.png" alt="Instagram">
@@ -172,6 +197,7 @@ header img.logo {
     </div>
   </div>
 </header>
+
 
 
 
