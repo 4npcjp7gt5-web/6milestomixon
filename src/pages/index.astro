@@ -24,90 +24,82 @@
       section { padding: 80px 20px; opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease, transform 0.8s ease; }
       section.visible { opacity: 1; transform: translateY(0); }
 
-/* HEADER */
-header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: rgba(17,17,17,0.95);
-  z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 10px 20px;
-  flex-wrap: wrap;
-}
+      /* HEADER */
+      header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(17,17,17,0.95);
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 20px;
+        flex-wrap: wrap;
+      }
 
-.header-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  max-width: 1200px;
-}
+      .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        max-width: 1200px;
+      }
 
-nav {
-  display: flex;
-  gap: 20px;
-  flex-shrink: 0;
-}
+      nav {
+        display: flex;
+        gap: 20px;
+        flex-shrink: 0;
+      }
 
-nav a {
-  color: #ffcc66;
-  font-weight: 600;
-  text-decoration: none,
-};
+      nav a {
+        color: #ffcc66;
+        font-weight: 600;
+        text-decoration: none;
+      }
 
-.logo-container {
-  display: flex;
-  justify-content: center;
-  flex: 1;
-}
+      .logo-container {
+        display: flex;
+        justify-content: center;
+        flex: 1;
+      }
 
-header img.logo {
-  height: 60px;
-  max-width: 100%;
-}
+      header img.logo {
+        height: 60px;
+        max-width: 100%;
+      }
 
-.social-icons {
-  display: flex;
-  gap: 15px;
-  flex-shrink: 0;
-  padding-right: 20px; /* ensures last icon never cut off */
-}
+      .social-icons {
+        display: flex;
+        gap: 15px;
+        flex-shrink: 0;
+        padding-right: 20px; /* ensures last icon never cut off */
+      }
 
-.social-icons img {
-  height: 28px;
-  width: 28px;
-  object-fit: contain;
-  filter: invert(1); /* white icons */
-  transition: filter 0.2s ease;
-}
+      .social-icons img {
+        height: 28px;
+        width: 28px;
+        object-fit: contain;
+        filter: invert(1); /* white icons */
+        transition: filter 0.2s ease;
+      }
 
-.social-icons img:hover {
-  filter: invert(0) sepia(1) saturate(5) hue-rotate(40deg); /* gold highlight */
-}
+      .social-icons img:hover {
+        filter: invert(0) sepia(1) saturate(5) hue-rotate(40deg); /* gold highlight */
+      }
 
-@media (max-width: 768px) {
-  header {
-    flex-direction: column;
-  }
-  .header-container {
-    flex-direction: column;
-    align-items: center;
-  }
-  nav, .social-icons {
-    margin: 5px 0;
-  }
-}
-
+      @media (max-width: 768px) {
+        header { flex-direction: column; }
+        .header-container { flex-direction: column; align-items: center; }
+        nav, .social-icons { margin: 5px 0; }
+      }
 
       /* ------------------ HERO ------------------ */
       .hero {
         height: 100vh;
         background: url('/hero.jpg') center/cover no-repeat;
-        background-attachment: fixed; /* parallax effect */
+        background-attachment: fixed;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -116,9 +108,25 @@ header img.logo {
         position: relative;
         overflow: hidden;
       }
-      .hero h1 { font-size: 4rem; display: flex; justify-content: center; flex-wrap: wrap; text-shadow: 0 0 20px rgba(0,0,0,0.6); color:#ffcc66; }
-      .hero h1 span { opacity: 0; transform: translateY(20px); display:inline-block; animation: fadeInUp 0.6s forwards; }
+
+      .hero h1 {
+        font-size: 4rem;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        text-shadow: 0 0 20px rgba(0,0,0,0.6);
+        color:#ffcc66;
+      }
+
+      .hero h1 span {
+        opacity: 0;
+        transform: translateY(20px);
+        display:inline-block;
+        animation: fadeInUp 0.6s forwards;
+      }
+
       @keyframes fadeInUp { to { opacity:1; transform: translateY(0);} }
+
       .hero p { font-size: 1.5rem; margin-top:10px; }
 
       .scroll-down {
@@ -128,6 +136,7 @@ header img.logo {
         margin-top: 20px;
         animation: bounce 1.5s infinite;
       }
+
       @keyframes bounce { 0%,100%{transform:translateY(0);} 50%{transform:translateY(10px);} }
 
       /* ------------------ MUSIC ------------------ */
@@ -136,30 +145,30 @@ header img.logo {
         overflow-x: auto;
         padding-bottom: 20px;
       }
+
       .music-card {
-  flex: 0 0 auto;
-  margin-right: 20px;
-  border: 2px solid #ffcc66;
-  border-radius: 10px;
-  padding: 10px;
-  background: #1a1a1a;
-  transition: transform 0.5s ease, box-shadow 0.5s ease, opacity 0.8s ease;
-  opacity: 0;
-  transform: translateY(30px);
-}
+        flex: 0 0 auto;
+        margin-right: 20px;
+        border: 2px solid #ffcc66;
+        border-radius: 10px;
+        padding: 10px;
+        background: #1a1a1a;
+        transition: transform 0.5s ease, box-shadow 0.5s ease, opacity 0.8s ease;
+        opacity: 0;
+        transform: translateY(30px);
+      }
 
-.music-card.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+      .music-card.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
 
-.music-card:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px #ffcc66;
-}
+      .music-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px #ffcc66;
+      }
 
-
-      /* ------------------ CONTACT BUTTON ------------------ */
+      /* ------------------ CONTACT ------------------ */
       .contact button {
         background-color: #ffcc66;
         border: none;
@@ -172,14 +181,9 @@ header img.logo {
         border-radius: 5px;
         transition: transform 0.2s ease, box-shadow 0.2s ease;
       }
+
       .contact button:hover { transform: scale(1.05); box-shadow: 0 0 15px #ffcc66; }
-    /* RESPONSIVE */
-      @media(max-width:768px){
-        header{flex-direction:column;}
-        .header-container{flex-direction:column; align-items:center;}
-        nav, .social-icons{margin:5px 0;}
-      }
-      
+
       /* ------------------ SCROLLBAR HIDE ------------------ */
       .music-container::-webkit-scrollbar { display: none; }
       .music-container { -ms-overflow-style: none; scrollbar-width: none; }
@@ -189,92 +193,55 @@ header img.logo {
     </style>
   </head>
   <body>
-    <!-- HEADER WITH LOGO AND NAV -->
-<header>
-  <div class="header-container">
-    <!-- Left nav -->
-    <nav>
-      <a href="#about">About</a>
-      <a href="#music">Music</a>
-      <a href="#contact">Contact</a>
-    </nav>
+    <!-- HEADER -->
+    <header>
+      <div class="header-container">
+        <nav>
+          <a href="#about">About</a>
+          <a href="#music">Music</a>
+          <a href="#contact">Contact</a>
+        </nav>
 
-    <!-- Center logo -->
-    <div class="logo-container">
-      <img src="/logo.png" alt="6 Miles to Mixon Logo" class="logo">
-    </div>
+        <div class="logo-container">
+          <img src="/logo.png" alt="6 Miles to Mixon Logo" class="logo">
+        </div>
 
-    <!-- Right social icons -->
-    <div class="social-icons">
-      <a href="https://www.instagram.com/6milestomixon" target="_blank">
-        <img src="/instagram.png" alt="Instagram">
-      </a>
-      <a href="https://www.facebook.com/6milestomixon" target="_blank">
-        <img src="/facebook.png" alt="Facebook">
-      </a>
-      <a href="https://www.youtube.com/@6milestomixon404" target="_blank">
-        <img src="/youtube.png" alt="YouTube">
-      </a>
-      <a href="https://open.spotify.com/artist/4RsETZ3foNzd7u3eKLzAm5?si=mpQAirrST2yGIol03Gt32w" target="_blank">
-        <img src="/spotify.png" alt="Spotify">
-      </a>
-    </div>
-  </div>
-</header>
+        <div class="social-icons">
+          <a href="https://www.instagram.com/6milestomixon" target="_blank"><img src="/instagram.png" alt="Instagram"></a>
+          <a href="https://www.facebook.com/6milestomixon" target="_blank"><img src="/facebook.png" alt="Facebook"></a>
+          <a href="https://www.youtube.com/@6milestomixon404" target="_blank"><img src="/youtube.png" alt="YouTube"></a>
+          <a href="https://open.spotify.com/artist/3GbbdkhKOBAyDsx5x5Xjtm?utm_source=generator" target="_blank"><img src="/spotify.png" alt="Spotify"></a>
+        </div>
+      </div>
+    </header>
 
-
-
-
-
-
-    <!-- Spacer -->
     <div class="spacer"></div>
 
     <!-- HERO -->
     <section class="hero">
-      <h1>6 Miles to Mixon</h1>
+      <h1>
+        <span>6</span><span> </span><span>M</span><span>i</span><span>l</span><span>e</span><span>s</span>
+        <span> </span><span>t</span><span>o</span><span> </span><span>M</span><span>i</span><span>x</span><span>o</span><span>n</span>
+      </h1>
       <p>The Premier Country Band of East Texas</p>
+      <div class="scroll-down">&#x2193;</div>
     </section>
 
     <!-- ABOUT -->
     <section id="about">
       <h2>About</h2>
-      <p>
-        6 Miles to Mixon is a high-energy country band based in the Tyler, Texas area, delivering crowd-pleasing performances built on strong vocals, tight musicianship, and songs everyone knows and loves. With a setlist focused on modern and classic country covers—paired with a few original songs—the band creates a fun, engaging atmosphere that keeps dance floors full. From intimate venues to large outdoor stages, 6 Miles to Mixon brings a professional, polished show that fits perfectly at weddings, corporate events, festivals, and country music venues.
-      </p>
+      <p>6 Miles to Mixon is a high-energy country band based in Tyler, Texas…</p>
     </section>
 
     <!-- MUSIC -->
     <section id="music">
       <h2>Music</h2>
       <div class="music-container">
-        <!-- Spotify -->
         <div class="music-card">
-          <iframe
-            data-testid="embed-iframe"
-            style="border-radius:12px"
-            src="https://open.spotify.com/embed/artist/3GbbdkhKOBAyDsx5x5Xjtm?utm_source=generator"
-            width="300"
-            height="352"
-            frameborder="0"
-            allowfullscreen=""
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy">
-          </iframe>
+          <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/artist/3GbbdkhKOBAyDsx5x5Xjtm?utm_source=generator" width="300" height="352" frameborder="0" allowfullscreen allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
         </div>
-
-        <!-- YouTube -->
         <div class="music-card">
-          <iframe
-            width="300"
-            height="170"
-            src="https://www.youtube.com/embed/Gy-i5RsI2Es?si=BOvy_oAhOrPMisU4"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerpolicy="strict-origin-when-cross-origin"
-            allowfullscreen>
-          </iframe>
+          <iframe width="300" height="170" src="https://www.youtube.com/embed/Gy-i5RsI2Es?si=BOvy_oAhOrPMisU4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
       </div>
     </section>
@@ -286,7 +253,7 @@ header img.logo {
       <button onclick="window.location.href='EPK.pdf'">Download EPK</button>
     </section>
 
-             <!-- JS Animations -->
+    <!-- JS Animations -->
     <script>
       // Hero letters stagger
       document.querySelectorAll('.hero h1 span').forEach((letter, index) => {
@@ -315,16 +282,15 @@ header img.logo {
       socialIcons.style.opacity=0;
       socialIcons.style.transform='translateY(20px)';
       socialObserver.observe(socialIcons);
+
+      // Music cards fade in on scroll
+      const musicCards = document.querySelectorAll('.music-card');
+      const musicObserver = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if(entry.isIntersecting) entry.target.classList.add('visible');
+        });
+      }, { threshold: 0.2 });
+      musicCards.forEach(card => musicObserver.observe(card));
     </script>
-    // Music cards fade in on scroll
-const musicCards = document.querySelectorAll('.music-card');
-const musicObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting) entry.target.classList.add('visible');
-  });
-}, { threshold: 0.2 });
-
-musicCards.forEach(card => musicObserver.observe(card));
-
   </body>
 </html>
