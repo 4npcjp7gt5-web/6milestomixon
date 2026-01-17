@@ -104,6 +104,32 @@
   @keyframes fadeUp {
     to { opacity: 1; transform: translateY(0); }
   }
+  .hero-logo {
+  backdrop-filter: blur(2px);
+}
+  .hero-logo {
+    width: 320px;
+    max-width: 80%;
+    height: auto;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 0 25px rgba(0,0,0,0.7));
+}
+
+.hero-tagline {
+  font-size: 1.5rem;
+  color: #f5f5f5;
+  text-shadow: 0 0 15px rgba(0,0,0,0.6);
+}
+@media (max-width: 768px) {
+  .hero-logo {
+    width: 240px;
+  }
+
+  .hero-tagline {
+    font-size: 1.2rem;
+    padding: 0 10px;
+  }
+}
 
   /* ===== SECTION BACKGROUNDS ===== */
   .about {
@@ -196,12 +222,10 @@
 
 <!-- HERO -->
 <section class="hero">
-  <h1>
-    <span>6</span><span> </span><span>M</span><span>i</span><span>l</span><span>e</span><span>s</span>
-    <span> </span><span>t</span><span>o</span><span> </span><span>M</span><span>i</span><span>x</span><span>o</span><span>n</span>
-  </h1>
-  <p>The Premier Country Band of East Texas</p>
+  <img src="/logo.png" alt="6 Miles to Mixon" class="hero-logo">
+  <p class="hero-tagline">The Premier Country Band of East Texas</p>
 </section>
+
 
 <!-- ABOUT -->
 <section id="about" class="about">
