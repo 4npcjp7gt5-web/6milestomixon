@@ -36,23 +36,21 @@ header {
   justify-content: center;
   align-items: center;
   padding: 10px 20px;
-  flex-wrap: wrap; /* allows wrapping on smaller screens */
+  flex-wrap: wrap;
 }
 
-/* Container to hold nav, logo, and social icons */
 .header-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  max-width: 1200px; /* keeps content centered */
+  max-width: 1200px;
 }
 
-/* Nav links */
 nav {
   display: flex;
   gap: 20px;
-  flex-shrink: 0; /* prevent shrinking on smaller screens */
+  flex-shrink: 0;
 }
 
 nav a {
@@ -61,7 +59,6 @@ nav a {
   text-decoration: none;
 }
 
-/* Logo */
 .logo-container {
   display: flex;
   justify-content: center;
@@ -70,21 +67,21 @@ nav a {
 
 header img.logo {
   height: 60px;
-  max-width: 100%; /* ensures it scales */
+  max-width: 100%;
 }
 
-/* Social icons */
 .social-icons {
   display: flex;
   gap: 15px;
   flex-shrink: 0;
+  padding-right: 20px; /* ensures last icon never cut off */
 }
 
 .social-icons img {
   height: 28px;
   width: 28px;
   object-fit: contain;
-  filter: invert(1); /* white */
+  filter: invert(1); /* white icons */
   transition: filter 0.2s ease;
 }
 
@@ -92,7 +89,6 @@ header img.logo {
   filter: invert(0) sepia(1) saturate(5) hue-rotate(40deg); /* gold highlight */
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
   header {
     flex-direction: column;
@@ -182,14 +178,17 @@ header img.logo {
 
     <!-- Right social icons -->
     <div class="social-icons">
-      <a href="https://www.instagram.com/YOURINSTAGRAM" target="_blank">
+      <a href="https://www.instagram.com/6milestomixon" target="_blank">
         <img src="/instagram.png" alt="Instagram">
       </a>
-      <a href="https://www.facebook.com/YOURFACEBOOK" target="_blank">
+      <a href="https://www.facebook.com/6milestomixon" target="_blank">
         <img src="/facebook.png" alt="Facebook">
       </a>
-      <a href="https://www.youtube.com/channel/YOURYOUTUBE" target="_blank">
+      <a href="https://www.youtube.com/@6milestomixon404" target="_blank">
         <img src="/youtube.png" alt="YouTube">
+      </a>
+      <a href="https://open.spotify.com/artist/4RsETZ3foNzd7u3eKLzAm5?si=mpQAirrST2yGIol03Gt32w" target="_blank">
+        <img src="/spotify.png" alt="Spotify">
       </a>
     </div>
   </div>
