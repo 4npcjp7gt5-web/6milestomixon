@@ -179,43 +179,119 @@
 
 <body>
   <!-- HEADER -->
-  <header class="site-header">
-    <div class="nav-container">
-      <!-- LEFT: Nav Links Desktop + Hamburger Mobile -->
-      <div class="header-left">
-        <nav class="nav">
-          <a href="/">Home</a>
-          <a href="/#events">Events</a>
-          <a href="/#music">Music</a>
-          <a href="/#contact">Contact</a>
-        </nav>
-        <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </div>
-      <!-- CENTER: Logo -->
-      <div class="header-center">
-        <a href="/"><img src="/logo.png" alt="6 Miles to Mixon" class="header-logo"></a>
-      </div>
-      <!-- RIGHT: Social Icons -->
-      <div class="header-right social-icons">
-        <a href="https://www.instagram.com/6milestomixon"><img src="/instagram.png" alt="Instagram"></a>
-        <a href="https://www.facebook.com/6milestomixon"><img src="/facebook.png" alt="Facebook"></a>
-        <a href="https://www.youtube.com/@6milestomixon404"><img src="/youtube.png" alt="YouTube"></a>
-        <a href="https://open.spotify.com"><img src="/spotify.png" alt="Spotify"></a>
-      </div>
+<header class="site-header">
+  <div class="nav-container">
+    <!-- LEFT: Nav Links Desktop + Hamburger Mobile -->
+    <div class="header-left">
+      <!-- Desktop Nav -->
+      <nav class="nav">
+        <a href="/">Home</a>
+        <a href="/#events">Events</a>
+        <a href="/#music">Music</a>
+        <a href="/#contact">Contact</a>
+      </nav>
+
+      <!-- Mobile Hamburger -->
+      <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
 
-    <!-- MOBILE MENU -->
-    <nav class="mobile-nav">
-      <a href="/">Home</a>
-      <a href="/#events">Events</a>
-      <a href="/#music">Music</a>
-      <a href="/#contact">Contact</a>
-    </nav>
-  </header>
+    <!-- CENTER: Logo -->
+    <div class="header-center">
+      <a href="/"><img src="/logo.png" alt="6 Miles to Mixon" class="header-logo"></a>
+    </div>
+
+    <!-- RIGHT: Social Icons -->
+    <div class="header-right social-icons">
+      <a href="https://www.instagram.com/6milestomixon"><img src="/instagram.png" alt="Instagram"></a>
+      <a href="https://www.facebook.com/6milestomixon"><img src="/facebook.png" alt="Facebook"></a>
+      <a href="https://www.youtube.com/@6milestomixon404"><img src="/youtube.png" alt="YouTube"></a>
+      <a href="https://open.spotify.com"><img src="/spotify.png" alt="Spotify"></a>
+    </div>
+  </div>
+
+  <!-- MOBILE SLIDE-IN MENU -->
+  <nav class="mobile-nav">
+    <a href="/">Home</a>
+    <a href="/#events">Events</a>
+    <a href="/#music">Music</a>
+    <a href="/#contact">Contact</a>
+  </nav>
+</header>
+
+<style>
+  /* Hamburger & Nav behavior */
+  .nav { display: flex; gap: 1.5rem; }
+  .menu-toggle { display: none; /* hidden by default */ }
+
+  /* Mobile menu */
+  .mobile-nav {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    height: 100vh;
+    width: 240px;
+    background: #111;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 80px 20px 20px 20px;
+    transition: left 0.3s ease;
+    z-index: 999;
+  }
+  .mobile-nav.open { left: 0; }
+  .mobile-nav a { color: var(--gold); font-size: 1.2rem; text-decoration: none; }
+
+  /* Hamburger animation */
+  .menu-toggle {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 6px;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+  }
+  .menu-toggle span {
+    width: 22px;
+    height: 2px;
+    background: var(--gold);
+    border-radius: 2px;
+    display: block;
+    transition: all 0.3s ease;
+  }
+  .menu-toggle.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+  .menu-toggle.open span:nth-child(2) { opacity: 0; }
+  .menu-toggle.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+  /* Media Queries */
+  @media (max-width: 768px) {
+    .nav { display: none; } /* hide desktop nav */
+    .menu-toggle { display: flex; } /* show hamburger */
+  }
+  @media (min-width: 769px) {
+    .mobile-nav { display: none; } /* hide mobile slide menu */
+  }
+</style>
+
+<script>
+  const toggle = document.querySelector('.menu-toggle');
+  const mobileNav = document.querySelector('.mobile-nav');
+
+  toggle?.addEventListener('click', () => {
+    const isOpen = mobileNav.classList.toggle('open');
+    toggle.classList.toggle('open', isOpen);
+    toggle.setAttribute('aria-expanded', isOpen);
+    document.body.style.overflow = isOpen ? 'hidden' : 'auto';
+  });
+</script>
 
   <!-- HERO -->
   <section class="hero">
